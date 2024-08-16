@@ -3,7 +3,7 @@ import ShopifyBuy from '@shopify/buy-sdk';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const client = ShopifyBuy.buildClient({
+    const client = req.body.ShopifyBuy.buildClient({
       domain: process.env.SHOP_DOMAIN,
       storefrontAccessToken: process.env.storefront_ACCESS_TOKEN
     });
