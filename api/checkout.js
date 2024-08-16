@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     try {
       const checkout = await client.checkout.create();
       const lineItemsToAdd = req.body.products.map(product => ({
-        variantId: btoa(`gid://shopify/ProductVariant/${product.id}`),
+        variantId: Buffer.from(`gid://shopify/ProductVariant/${product.id}`).toString('base64'),
         quantity: product.quantity
       }));
 
