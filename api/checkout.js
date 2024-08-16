@@ -1,5 +1,5 @@
 
-
+const ShopifyBuy = require('./index.umd.min.js')
 export default async function handler(req, res) {
   // 添加 CORS 头信息
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    const client = req.body.ShopifyBuy.buildClient({
+    const client = ShopifyBuy.buildClient({
       domain: process.env.SHOP_DOMAIN,
       storefrontAccessToken: process.env.storefront_ACCESS_TOKEN
     });
